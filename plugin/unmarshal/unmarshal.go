@@ -1454,8 +1454,8 @@ func (p *unmarshal) Generate(file *generator.FileDescriptor) {
 				}
 				p.P(`hasFields[`, strconv.Itoa(int(fieldBit/64)), `] |= uint64(`, fmt.Sprintf("0x%08x", uint64(1)<<(fieldBit%64)), `)`)
 			}
+			p.Out()
 		}
-		p.Out()
 		p.P(`default:`)
 		p.In()
 		if message.DescriptorProto.HasExtension() {
